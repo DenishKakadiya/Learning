@@ -1,3 +1,3 @@
 <h1>Practice Files</h1>
 
-I add my practice files and projects here
+I store my  projects files here while learning python
