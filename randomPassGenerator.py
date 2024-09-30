@@ -17,7 +17,7 @@ combList = ["letters", "puncs", "nums"]
 print("Your random password is :") """
 
 # Basic generator using list comprehension
-# password = "".join([random.choice(comb) for i in range(passLen)])
+""" password = "".join([random.choice(comb) for i in range(passLen)]) """
 
 # Intermediate generator
 """ for i in range(passLen):
