@@ -25,7 +25,7 @@ def view():
         for line in f.readlines():
             data = line.rstrip()
             user, passw = data.split("|")
-            print(f"Username: {user}, Password: {far.decrypt(passw.encdode)}")
+            print(f"Username: {user}, Password: {fer.decrypt(passw.encdode)}")
 
 def add():
     name = input("Account name: ")
