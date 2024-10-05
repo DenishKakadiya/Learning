@@ -1,10 +1,14 @@
-""" 
-list = list(range(11))
+import requests
+import bs4
 
-my_gen = (n*n for n in list)
 
-print(my_gen)
-print(type(my_gen))
-print(type(range(11))) """
+payload = {
+    "username": 'Dk',
+    "password": 'testing'
+}
+response = requests.get('https://httpbin.org/delay/2', timeout=3)
+print(response)
 
-print(sum([]))
+
+""" with open("../Practice/comic.png","wb") as f:
+    f.write(response.content) """
