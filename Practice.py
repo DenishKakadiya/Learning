@@ -1,9 +1,8 @@
-import webbrowser
-import requests
-from bs4 import BeautifulSoup
 
+list = list(range(11))
 
-url = "https://www.google.com"
+my_gen = (n*n for n in list)
 
-response = requests.get(url)
-print(response)
+print(my_gen)
+print(type(my_gen))
+print(type(range(11)))
