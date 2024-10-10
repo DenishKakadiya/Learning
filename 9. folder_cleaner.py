@@ -1,7 +1,6 @@
 # This python app sort all files of Download folder in different folders based on its extension.
 
 import os
-import wiki_format_scapper
 
 home = os.environ.get("HOME") 
 os.chdir(home)
