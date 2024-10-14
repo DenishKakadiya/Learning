@@ -29,7 +29,7 @@ def on_progress(stream, chunk, bytes_remaining):
 
 # system setting
 customtkinter.set_appearance_mode("System")
-# customtkinter.set_default_color_theme("Sweet-Blue-Filled")
+# customtkinter.set_default_color_theme("Green")
 
 # App frame
 app = customtkinter.CTk()
