@@ -14,6 +14,29 @@ symbol_count = {
     "D" : 8
 }
 
+symbol_value = {
+    "A" : 8,
+    "B" : 6,
+    "C" : 4,
+    "D" : 2
+}
+
+def check_winnings(columns, lines, amts, values):
+    winnings = 0
+    winning_lines = []
+    for line in range(lines):
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                break
+        else:
+            winnings += values[symbol]* amts 
+            winning_lines.append(line +1)
+
+    return winnings, winning_lines
+
+
 def get_shot_spin(rows, cols, symbols):
     all_symbols = []
     for symbol, symbol_count in symbols.items():
@@ -80,15 +103,13 @@ def get_amt():
             print("Enter valid number")
     return amount
 
-
-def main():
-    balance = deposit()
+def play(balance):
     lines = get_no_of_lines()
     while True:
         amt = get_amt()
         total_amt = amt*lines
         if total_amt <= balance:
-            print(f"You chose to play with {amt} for {lines} lines. So the total amount is :{total_amt}.")
+            print(f"\nYou chose to play with {amt} for {lines} lines. So the total amount is :{total_amt}.\n")
             break
         else:
             print(f"Your current balance is only {balance}. Please enter the amount accordingly")
@@ -96,6 +117,22 @@ def main():
     shots = get_shot_spin(ROWS, COLS, symbol_count)
     print_shot(shots)
 
+    winnings, winning_lines = check_winnings(shots, lines, amt, symbol_value)
+    print(f"You won {winnings}.")
+    print("You won on lines no.:", *winning_lines)
 
+    return winnings - total_amt
+
+def main():
+    balance = deposit()
+    while True:
+        print(f"Your balance is {balance}")
+        spin = input("Do you want to play more (press Enter) or quit (q): ")
+        if spin == "q":
+            break
+        balance += play(balance) 
+
+    print(f"You currently have {balance}")
+    
 if __name__ == "__main__":
     main()
